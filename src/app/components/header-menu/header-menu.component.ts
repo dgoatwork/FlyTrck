@@ -6,7 +6,11 @@ import { Component} from '@angular/core';
   styleUrls: ['./header-menu.component.less']
 })
 export class HeaderMenuComponent{
+  private _menuVisible : boolean = false;
   constructor(){
 
+  }
+  toggleMenu(){
+    this._menuVisible = !this._menuVisible;
   }
 }

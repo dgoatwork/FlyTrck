@@ -1,6 +1,13 @@
-<div class="header">
-  <div (click)="toggleMenu()"></div>
-  <div>
-
+<div class="header ui-grid-row">
+  <div class="ui-grid-col-1" (click)="toggleMenu()">
+    <div class="fa icon" [ngClass]="{'fa-bars':!_menuVisible,'fa-times':_menuVisible}"></div>
   </div>
+  <div class="menu" [ngClass]="{'hidden':!_menuVisible,'shown':_menuVisible}">
+    <ul>
+      <li class="menu-item">Map</li>
+      <li class="menu-item">Companies</li>
+      <li class="menu-item">Flight F/T</li>
+    </ul>
+  </div>
+  <div class="ui-grid-col-10 title">FlyTrck</div>
 </div>
