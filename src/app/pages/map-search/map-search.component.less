@@ -1,17 +1,24 @@
-map-page{
-  height:100%;
-  position:absolute;
-  width:100%;
+:host{
+  flex: 1 1 auto;
+  /*position: relative;*/
+  display:flex;
+  flex-direction:column;
 }
-.page{
-  left:0;
-  height:100%;
-  width:100%;
-  background-color: black;
-  position:absolute;
+.map-page-container{
+  flex:1 1 auto;
+  display: flex;
+  flex-direction: row;
 }
+
 .map-container{
-  height:100%;
-  width:60%;
-  position:absolute;
+  flex:2;
 }
+.data-container{
+  flex:1;
+}
+@media all and (max-width: 600px){
+  .map-page-container{
+    flex-direction: column;
+  }
+}
+

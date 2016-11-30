@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-
-declare var google: any;
+import {Component, ViewChild, ElementRef} from '@angular/core';
 
 @Component({
   selector:'map-page',
@@ -10,6 +8,8 @@ declare var google: any;
 export class MapSearchComponent{
   options: any;
   overlays: any[];
+  @ViewChild('map') _mapContainer : ElementRef;
+  private _map : any;
 
   constructor(){
   }
@@ -22,5 +22,14 @@ export class MapSearchComponent{
       mapTypeControl : false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
+    this._map = new google.maps.Map(this._mapContainer.nativeElement,this.options);
+
+    this.getUserLocation();
+  }
+
+  getUserLocation(){
+    navigator.geolocation.getCurrentPosition(position=>{
+      this._map.setCenter({lat:position.coords.latitude,lng:position.coords.longitude});
+    })
   }
 }
